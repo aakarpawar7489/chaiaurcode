@@ -1,0 +1,100 @@
+const { parseArgs } = require("util")
+
+learning middleware ***
+    middleware uses in requesting from server
+    the syntax used in middlware are
+    // app.use();
+    
+    some other built in middlewares are;
+    // exress.static()
+    // express.json()
+    // epxress.urlencoded()
+
+Third party middlewares
+* cookie-parser, morgan, cors, passport, Helmet
+
+
+
+app.use((req, res, next)=>{
+    res.send("");
+    next();
+});
+
+
+we can use multiple middlewares 
+chaining can be used in the middleware to execute the code or route
+
+with the help of next in 
+app.use((req, res, next)=>{
+    res.send("i'm middleware");
+    next();
+});
+app.use((req, res, next)=>{
+res.send("i'm middleware 2");
+    next();
+});
+
+app.use("/", (req, res)=>{
+    res.send("I;m thirrd middleware");
+})
+
+
+// if we select a wrong path in url 
+then the middleware will work normally as obvious
+ 
+ we can also write like this (after next() function in the route)
+ 
+ app.use((req, res, next)=>{
+    console.log("hello i'm middleware);
+    next();
+    console.log("after next() middleware function"); // this way is not gentle we should write like this a good programmer never does this type of code;
+ });
+
+next() is considered as the end of the code
+
+we can even return next();
+
+ app.use((req, res, next)=>{
+    console.log("hello i'm middleware);
+    return next();
+    console.log("after next() middleware function"); // this way is not gentle we should write like this a good programmer never does this type of code;
+ });
+ 
+ we use return next() so that if the code may be written after next() function then the code should not execute;
+
+
+ // Multiple middlewares
+    1. we can pass multiple middlewares agt once
+    we can store the function in variable like
+    const checkToken = (req, res, next)=>{
+        let{token} = req.query;
+        if(token==="giveaccess"){
+            next();
+        }
+    
+
+    after assignining to the middleware we can call it from the route function like this.
+        app.get("/api", checkToken, (req, res)=>{
+            res.send("data");
+        })
+        }
+    
+    // express provides built in error handling functions by which we can fix or show errors and can change their interface itself 
+
+
+
+
+    we have always seen that express's default error handler is triggered every time 
+
+    how can we custom handler define 
+
+    ERROR HANDLER***
+    we have ssen how express default error handleer works
+
+    define our own error handler middleware function 
+
+    different types of middleware
+    1. handles error
+    2. morgan, cors, coockies-parser, helmet, Passport.
+
+    

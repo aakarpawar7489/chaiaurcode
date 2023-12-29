@@ -1,0 +1,111 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.App{
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: #e5e7e7;
+}
+.headingImage{
+    text-align: center;
+    /* color:#fff; */
+    font-size: 1.3rem;
+    font-weight: 400;
+
+    background-color: 
+    rgb(220, 229, 238);
+    padding:0.5rem 4rem;
+    margin-bottom: 5px;
+    width:100vw;
+}
+.mainImage{
+    display: flex;
+    align-items: center;
+    border-radius: 5px; 
+    box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+}
+.mainImage img{
+    width:55vw;
+    height:55vh;
+    border-radius: 5px;
+}
+
+.imageViewer{
+    width: 100vw;
+    height:35vh;
+    bottom: 0;
+    padding:10px;
+    /* padding-bottom: 1rem; */
+    position: absolute;
+    background-color: #f3f3f7;
+  
+}
+.imageViewer img{
+    width:18vw;
+    height:23vh;
+    object-fit: cover;
+    border:1px solid black;
+    cursor: pointer;
+}
+.imageViewer img.border{
+    opacity: 0.6;
+    border: 1px solid rgb(19, 19, 32);
+}
+
+.selected{
+    margin-bottom: 0.5rem;
+}
+.selected > select{
+    cursor: pointer;
+    background-color: rgb(132, 194, 245);
+    color:#fff;
+    border: none;
+    padding:2px;
+    border-radius: 4px;
+    margin-right: 3px;
+    
+}
+.selected > select:focus{
+    outline: none;
+}
+@media screen and (max-width:990px){
+    .mainImage img {
+        width: 74vw;
+        height: 55vh;
+    }
+    .imageViewer img {
+        width: 29vw;
+        height: 23vh;
+        
+    }
+}
+ @media screen and (max-width:600px){
+    .imageViewer img {
+        width: 44vw;
+        height: 23vh;
+    }
+ }
+ @media screen and (max-width:400px){
+    .mainImage img {
+        width: 84vw;
+        height: 49vh;
+    }
+    .imageViewer img {
+        width: 56vw;
+        height: 23vh;
+    }
+    .imageViewer {
+       
+        padding: 16px;
+       
+    }
+ }
+ 

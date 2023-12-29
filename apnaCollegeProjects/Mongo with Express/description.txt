@@ -1,0 +1,47 @@
+project second completed:
+1. Whatsapp chat system: with sending message to someone by entering sender name and receiver name and message in the form and then can submit to redirect the chats page where new chat will be shown
+
+2. Database is created and all the new chats will be shown in the database and saved there.
+
+3. techstacks: Javascript, expressjs, mongodb, nodejs, ejs, mongoose, methodOverride(method), mongoose model, css, html, async await function.
+
+4.
+
+using wrapAsync:- normal synchonous error
+async error: we can handle specific handle (express error)
+try-catch(bulky)- repition : we can write effectively
+with the help of wrapAsync 
+we are creating a asnyc function to wrapAsync 
+
+function asyncWrap(fn){
+    return function(req, res, next){
+        fn(req,res,next).catch((err)=>next(err));
+    }
+}
+
+
+
+----asyncWrap----
+
+function asyncWrap(fn){
+return function(req, res, next){
+fn(req, res, next).catch((err)=>next(err));
+}
+}
+
+-----Mongoose Error-----
+ ***handleValidationErr***
+const handleValidationErr = (err)=>{
+console.log(err);
+console.dir(err.message);
+return err;
+};
+
+app.use((err, req, res, next)=>{
+console.log(err.name);
+if(err.name==ValidationErr){
+err = handleValidationErr(err);
+}
+next(err);
+});
+
