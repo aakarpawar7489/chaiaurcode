@@ -119,7 +119,7 @@ app.patch("/user/:id", (req, res)=>{
         res.send("some error occured");
     }
 });
-app.listen("8080", ()=>{
-    console.log("listeing to port:8080");
+app.listen("8082", ()=>{
+    console.log("listeing to port:8082");
 })
 
